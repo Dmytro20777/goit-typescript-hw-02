@@ -13,7 +13,10 @@ type AllType = {
 
 
 
-function compare <T extends AllType>(top: T, bottom: T):AllType  {
+function compare<
+  T extends Pick<AllType, "name" | "color">,
+  U extends Pick<AllType, "position" | "weight">
+>(top: T, bottom: U): AllType  {
   return {
     name: top.name,
     color: top.color,
